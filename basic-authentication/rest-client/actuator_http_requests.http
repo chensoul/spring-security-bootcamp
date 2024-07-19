@@ -1,0 +1,5 @@
+### GET request for actuator HTTP metrics endpoint
+
+GET http://localhost:8080/actuator/metrics/http.server.requests
+
+###

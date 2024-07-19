@@ -1,0 +1,5 @@
+### GET request for actuator SBOM endpoint
+
+GET http://localhost:8080/actuator/sbom/application
+
+###
