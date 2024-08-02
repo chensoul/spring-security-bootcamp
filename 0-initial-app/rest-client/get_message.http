@@ -1,0 +1,7 @@
+### GET request for message endpoint
+
+GET http://localhost:8080/api/private/message
+###
+
+GET http://localhost:8080/api/public/message
+###

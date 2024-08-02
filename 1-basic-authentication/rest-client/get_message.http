@@ -1,0 +1,8 @@
+### GET request for message endpoint
+
+GET http://localhost:8080/api/private/message
+Authorization: Basic user secret
+###
+
+GET http://localhost:8080/api/public/message
+###

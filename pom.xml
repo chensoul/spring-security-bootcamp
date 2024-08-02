@@ -25,7 +25,7 @@
   </build>
 
   <modules>
-    <module>initial-app</module>
-	<module>basic-authentication</module>
+    <module>0-initial-app</module>
+	<module>1-basic-authentication</module>
 </modules>
 </project>
