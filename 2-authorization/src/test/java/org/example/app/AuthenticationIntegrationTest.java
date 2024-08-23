@@ -47,7 +47,7 @@ class AuthenticationIntegrationTest {
     @DisplayName("call protected actuator environment endpoint with valid creds")
     @Test
     void requestActuatorEnvSuccess() throws Exception {
-        this.mvc.perform(get("/actuator/env").with(httpBasic("user", "secret")))
+        this.mvc.perform(get("/actuator/env").with(httpBasic("admin", "admin")))
                 .andExpect(status().is2xxSuccessful()).andReturn();
     }
 
@@ -88,11 +88,17 @@ class AuthenticationIntegrationTest {
     }
 
     @DisplayName("call protected admin endpoint with valid creds")
-    @ParameterizedTest
-    @MethodSource("users")
-    void requestAdminSuccess(Pair<String,String> user) throws Exception {
-        this.mvc.perform(get("/api/admin").with(httpBasic(user.getLeft(), user.getRight())))
-                .andExpect(status().is2xxSuccessful()).andExpect(content().string(String.format("Hello [%s], this is the administrative endpoint", user.getLeft()))).andReturn();
+    @Test
+    void requestAdminSuccess() throws Exception {
+        this.mvc.perform(get("/api/admin").with(httpBasic("admin", "admin")))
+                .andExpect(status().is2xxSuccessful()).andExpect(content().string(String.format("Hello [%s], this is the administrative endpoint", "admin"))).andReturn();
+    }
+
+    @DisplayName("call protected admin endpoint with insufficient rights")
+    @Test
+    void requestAdminFailInsufficientRights() throws Exception {
+        this.mvc.perform(get("/api/admin").with(httpBasic("user", "secret")))
+                .andExpect(status().isForbidden()).andReturn();
     }
 
     @DisplayName("call protected admin endpoint with invalid creds")

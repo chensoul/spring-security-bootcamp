@@ -15,13 +15,13 @@ public class MessageApi {
     }
 
     @GetMapping("/public/message")
-    public String public_message() {
-        return messageService.public_message();
+    public String publicMessage() {
+        return messageService.publicMessage();
     }
 
     @GetMapping("/private/message")
-    public String private_message() {
-        return messageService.private_message("user");
+    public String privateMessage() {
+        return messageService.privateMessage("user");
     }
 
     @GetMapping("/admin")

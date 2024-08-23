@@ -29,7 +29,7 @@ public class WebSecurityConfiguration {
         http.securityMatcher("/actuator/**")
                 .authorizeHttpRequests(r -> {
                             r.requestMatchers(EndpointRequest.to(HealthEndpoint.class)).permitAll();
-                            r.anyRequest().authenticated();
+                            r.anyRequest().hasRole(ADMIN_ROLE_NAME);
                         }
                 ).httpBasic(withDefaults()).formLogin(withDefaults());
         return http.build();
@@ -40,6 +40,8 @@ public class WebSecurityConfiguration {
         http
                 .authorizeHttpRequests(authorize -> {
                             authorize.requestMatchers("/api/public/message/**").permitAll();
+                            authorize.requestMatchers("/api/private/message/**").hasAnyRole(USER_ROLE_NAME, ADMIN_ROLE_NAME);
+                            authorize.requestMatchers("/api/admin/**").hasAnyRole(ADMIN_ROLE_NAME);
                             authorize.anyRequest().authenticated();
                         }
                 ).httpBasic(withDefaults()).formLogin(withDefaults());

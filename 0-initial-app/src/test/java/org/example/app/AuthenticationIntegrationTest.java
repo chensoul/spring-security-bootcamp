@@ -53,7 +53,7 @@ public class AuthenticationIntegrationTest {
     @Test
     void requestPublicMessageNoAuthentication() throws Exception {
         this.mvc.perform(get("/api/public/message"))
-                .andExpect(status().is2xxSuccessful()).andExpect(content().string("Hello User, this is a public endpoint")).andReturn();
+                .andExpect(status().is2xxSuccessful()).andExpect(content().string("Hello unknown user, this is a public endpoint")).andReturn();
     }
 
     @DisplayName("call unprotected admin endpoint")

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: initial-app
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    java:
+      enabled: true
+
+logging:
+  level:
+    org:
+      springframework:
+        security: trace
