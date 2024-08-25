@@ -1,0 +1,12 @@
+### GET request for message endpoint
+
+GET http://localhost:8080/api/private/message
+Authorization: Bearer {{$auth.token("authz-server")}}
+###
+
+GET http://localhost:8080/api/private/message
+Authorization: Bearer {{$auth.token("authz-server")}}
+###
+
+GET http://localhost:8080/api/public/message
+###

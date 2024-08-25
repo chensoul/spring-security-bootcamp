@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: initial-app
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: demo-client-pkce-opaque
+          client-secret: secret
+          introspection-uri: http://localhost:9000/oauth2/introspect
+          userinfo-uri: http://localhost:9000/userinfo
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    java:
+      enabled: true
+
+logging:
+  level:
+    org:
+      springframework:
+        security: trace
