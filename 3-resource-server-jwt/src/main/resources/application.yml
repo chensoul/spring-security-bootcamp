@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: initial-app
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+          audiences:
+            - demo-api
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    java:
+      enabled: true
+
+logging:
+  level:
+    org:
+      springframework:
+        security: trace

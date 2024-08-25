@@ -28,5 +28,6 @@
     <module>0-initial-app</module>
 	<module>1-basic-authentication</module>
 	<module>2-authorization</module>
+	<module>3-resource-server-jwt</module>
 </modules>
 </project>

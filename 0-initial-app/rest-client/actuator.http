@@ -1,19 +1,24 @@
 ### GET request for actuator endpoints
 
 GET http://localhost:8080/actuator
+# Authorization: Basic {{standard_user_name}} {{standard_user_pwd}}
 ###
 
 GET http://localhost:8080/actuator/health
 ###
 
 GET http://localhost:8080/actuator/env
+# Authorization: Basic {{standard_user_name}} {{standard_user_pwd}}
 ###
 
 GET http://localhost:8080/actuator/info
+# Authorization: Basic {{standard_user_name}} {{standard_user_pwd}}
 ###
 
 GET http://localhost:8080/actuator/metrics/http.server.requests
+# Authorization: Basic {{standard_user_name}} {{standard_user_pwd}}
 ###
 
 GET http://localhost:8080/actuator/sbom/application
+# Authorization: Basic {{standard_user_name}} {{standard_user_pwd}}
 ###

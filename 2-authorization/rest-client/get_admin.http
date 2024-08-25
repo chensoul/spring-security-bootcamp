@@ -1,5 +1,5 @@
 ### GET request for admin endpoint
 
 GET http://localhost:8080/api/admin
-Authorization: Basic admin admin
+Authorization: Basic {{admin_user_name}} {{admin_user_pwd}}
 ###
