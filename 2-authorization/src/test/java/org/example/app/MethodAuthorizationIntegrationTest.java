@@ -1,6 +1,7 @@
 package org.example.app;
 
 import org.example.app.message.MessageService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,12 +20,14 @@ public class MethodAuthorizationIntegrationTest {
         this.messageService = messageService;
     }
 
+    @DisplayName("call public message service without creds")
     @Test
     void requestPublicMessageSuccess() {
         String message = messageService.publicMessage();
         assertThat(message).isNotNull().isEqualTo("Hello unknown user, this is a public endpoint");
     }
 
+    @DisplayName("call private message service with insufficient rights")
     @WithMockUser(roles = {"INVALID"})
     @Test
     void requestPrivateMessageAccessDeniedForWrongRole() {
@@ -33,6 +36,7 @@ public class MethodAuthorizationIntegrationTest {
         }, "Insufficient role").isInstanceOf(AccessDeniedException.class).hasMessage("Access Denied");
     }
 
+    @DisplayName("call private message service with sufficient rights")
     @WithMockUser
     @Test
     void requestPrivateMessageAccessGrantedForUserRole() {
@@ -40,13 +44,15 @@ public class MethodAuthorizationIntegrationTest {
         assertThat(message).isNotNull().isEqualTo("Hello [user], this is a private endpoint");
     }
 
-    @WithMockUser(roles = "ADMIN")
+    @DisplayName("call private message service with multiple roles")
+    @WithMockUser(roles = {"USER", "ADMIN"})
     @Test
     void requestPrivateMessageAccessGrantedForAdminRole() {
         String message = messageService.privateMessage("admin");
         assertThat(message).isNotNull().isEqualTo("Hello [admin], this is a private endpoint");
     }
 
+    @DisplayName("call admin message service without administrative rights")
     @WithMockUser(roles = "USER")
     @Test
     void requestAdminMessageAccessDeniedForUserRole() {
@@ -55,6 +61,7 @@ public class MethodAuthorizationIntegrationTest {
         }, "Insufficient role").isInstanceOf(AccessDeniedException.class).hasMessage("Access Denied");
     }
 
+    @DisplayName("call admin message service with administrative rights")
     @WithMockUser(roles = "ADMIN")
     @Test
     void requestAdminMessageAccessGrantedForAdminRole() {

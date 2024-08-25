@@ -4,21 +4,25 @@ GET http://localhost:8080/actuator
 Authorization: Basic user secret
 ###
 
+GET http://localhost:8080/actuator
+Authorization: Basic admin admin
+###
+
 GET http://localhost:8080/actuator/health
 ###
 
 GET http://localhost:8080/actuator/env
-Authorization: Basic user secret
+Authorization: Basic admin admin
 ###
 
 GET http://localhost:8080/actuator/info
-Authorization: Basic user secret
+Authorization: Basic admin admin
 ###
 
 GET http://localhost:8080/actuator/metrics/http.server.requests
-Authorization: Basic user secret
+Authorization: Basic admin admin
 ###
 
 GET http://localhost:8080/actuator/sbom/application
-Authorization: Basic user secret
+Authorization: Basic admin admin
 ###
