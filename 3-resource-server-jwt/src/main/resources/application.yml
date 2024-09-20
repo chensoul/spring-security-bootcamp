@@ -7,7 +7,7 @@ spring:
         jwt:
           jwk-set-uri: http://localhost:9000/oauth2/jwks
           audiences:
-            - demo-api
+            - jwt
 management:
   endpoints:
     web:

@@ -40,13 +40,11 @@ public class CustomAuthoritiesOpaqueTokenIntrospector implements OpaqueTokenIntr
 
     private UserInfoResponse getUserInfo(String token) {
         return webClient.get()
-                //.accept(MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
                 .exchangeToMono(response -> {
                     if (response.statusCode().equals(HttpStatus.OK)) {
                         return response.bodyToMono(UserInfoResponse.class);
                     } else {
-                        // Turn to error
                         return response.createError();
                     }
                 }).block();

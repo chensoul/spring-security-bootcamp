@@ -5,11 +5,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.3</version>
+        <version>3.3.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.example</groupId>
-    <artifactId>4-resource-server-opaque</artifactId>
+    <artifactId>resource-server-opaque</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>4.Resource Server (Opaque)</name>
     <description>Resource Server Application using opaque tokens</description>

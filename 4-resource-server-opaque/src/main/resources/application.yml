@@ -5,8 +5,8 @@ spring:
     oauth2:
       resourceserver:
         opaquetoken:
-          client-id: demo-client-pkce-opaque
-          client-secret: secret
+          client-id: opaque
+          client-secret: opaque
           introspection-uri: http://localhost:9000/oauth2/introspect
           userinfo-uri: http://localhost:9000/userinfo
 management:
