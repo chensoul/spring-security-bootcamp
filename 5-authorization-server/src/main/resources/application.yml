@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: 5-authorization-server
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          jwt:
+            registration:
+              client-id: "jwt"
+              client-secret: "{noop}jwt"
+              client-authentication-methods:
+                - "client_secret_basic"
+                - "client_secret_post"
+                - "none"
+              authorization-grant-types:
+                - "authorization_code"
+                - "client_credentials"
+                - "refresh_token"
+              redirect-uris:
+                - "http://127.0.0.1:8080/callback"
+                - "http://localhost:8080/callback"
+                - "https://oauth.pstmn.io/v1/callback"
+              post-logout-redirect-uris:
+                - "http://127.0.0.1:8080/"
+                - "http://localhost:8080/"
+              scopes:
+                - "openid"
+                - "profile"
+            require-authorization-consent: true
+            require-proof-key: true
+            token:
+              access-token-format: "self-contained"
+          opaque:
+            registration:
+              client-id: "opaque"
+              client-secret: "{noop}opaque"
+              client-authentication-methods:
+                - "client_secret_basic"
+                - "client_secret_post"
+                - "none"
+              authorization-grant-types:
+                - "authorization_code"
+                - "client_credentials"
+                - "refresh_token"
+              redirect-uris:
+                - "http://127.0.0.1:8080/callback"
+                - "http://localhost:8080/callback"
+                - "https://oauth.pstmn.io/v1/callback"
+              post-logout-redirect-uris:
+                - "http://127.0.0.1:8080/"
+                - "http://localhost:8080/"
+              scopes:
+                - "openid"
+                - "profile"
+            require-authorization-consent: true
+            require-proof-key: true
+            token:
+              access-token-format: "reference"
+      resourceserver:
+        opaquetoken:
+          introspection-uri: http://localhost:9000/oauth2/introspect
+          client-secret: opaque
+          client-id: opaque
+server:
+  port: 9000

@@ -1,0 +1,14 @@
+### GET request to user info
+GET http://localhost:9000/userinfo
+Authorization: Bearer {{$auth.token("jwt")}}
+
+###
+GET http://localhost:9000/userinfo
+Authorization: Bearer {{$auth.token("opaque")}}
+
+###
+POST http://localhost:9000/oauth2/introspect
+Authorization: Basic opaque opaque
+Content-Type: application/x-www-form-urlencoded
+
+token=p2PfUSKLG-9WsS84_tMHaQiy1Mf12Q944wY08I8PeTDAMwlHXwCLqbDbcNLkUioDDuexms2pbCxyz_wNXwciYKu4I5jJ_Pb_CaD4auRusD8LjJi5ByuVC3_RiysueOga

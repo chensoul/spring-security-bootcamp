@@ -30,5 +30,6 @@
 	<module>2-authorization</module>
 	<module>3-resource-server-jwt</module>
 	<module>4-resource-server-opaque</module>
+    <module>5-authorization-server</module>
 </modules>
 </project>
