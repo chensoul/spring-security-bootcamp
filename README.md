@@ -17,7 +17,7 @@ Boot Camp to secure applications with Spring Security
 
 Any feedback on this project is highly appreciated.
 
-Just email _andreas.falk(at)novatec-gmbh.de_ or contact me via Twitter (_@andifalk_).
+Just email _andreas.falk(at)novatec-gmbh.de_.
 
 ## License
 

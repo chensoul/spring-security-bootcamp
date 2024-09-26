@@ -24,7 +24,7 @@ public class WebSecurityConfiguration {
     @Order(1)
     @Bean
     public SecurityFilterChain actuatorSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.securityMatcher("/actuator/**")
+        http.securityMatcher("/actuator/**", "/v3/api-docs", "/swagger-ui.html", "/swagger-ui/**")
                 .authorizeHttpRequests(r -> {
                             r.requestMatchers(EndpointRequest.to(HealthEndpoint.class)).permitAll();
                             r.anyRequest().hasRole(ADMIN_ROLE_NAME);
