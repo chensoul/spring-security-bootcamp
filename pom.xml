@@ -11,18 +11,7 @@
 
   <name>Spring Security Bootcamp</name>
   <description>Spring Security Bootcamp (Hands-On Workshop)</description>
-  <url>https://github.com/andifalk/spring-security-bootcamp</url>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
-  </properties>
-
-  <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-    </pluginManagement>
-  </build>
+  <url>https://github.com/chensoul/spring-security-bootcamp</url>
 
   <modules>
     <module>0-initial-app</module>

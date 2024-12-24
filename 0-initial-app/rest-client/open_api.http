@@ -1,5 +1,4 @@
-### GET request for open api specification
+### GET request for /v3/api-docs
 
 GET http://localhost:8080/v3/api-docs
 # Authorization: Basic {{standard_user_name}} {{standard_user_pwd}}
-###

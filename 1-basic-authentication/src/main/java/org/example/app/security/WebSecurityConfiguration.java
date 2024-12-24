@@ -23,23 +23,12 @@ public class WebSecurityConfiguration {
     public static final String USER_ROLE_NAME = "USER";
     public static final String ADMIN_ROLE_NAME = "ADMIN";
 
-    @Order(1)
-    @Bean
-    public SecurityFilterChain actuatorSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.securityMatcher("/actuator/**", "/v3/api-docs", "/swagger-ui.html", "/swagger-ui/**")
-                .authorizeHttpRequests(r -> {
-                            r.requestMatchers(EndpointRequest.to(HealthEndpoint.class)).permitAll();
-                            r.anyRequest().authenticated();
-                        }
-                ).httpBasic(withDefaults()).formLogin(withDefaults());
-        return http.build();
-    }
-
     @Bean
     public SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> {
                             authorize.requestMatchers("/api/public/message/**").permitAll();
+                            authorize.requestMatchers(EndpointRequest.to(HealthEndpoint.class)).permitAll();
                             authorize.anyRequest().authenticated();
                         }
                 ).httpBasic(withDefaults()).formLogin(withDefaults());
@@ -51,7 +40,7 @@ public class WebSecurityConfiguration {
         User.UserBuilder users = User.builder();
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(users.username("user").password(passwordEncoder().encode("secret")).roles(USER_ROLE_NAME).build());
-        manager.createUser(users.username("admin").password(passwordEncoder().encode("admin")).roles(USER_ROLE_NAME,ADMIN_ROLE_NAME).build());
+        manager.createUser(users.username("admin").password(passwordEncoder().encode("admin")).roles(USER_ROLE_NAME, ADMIN_ROLE_NAME).build());
         return manager;
     }
 

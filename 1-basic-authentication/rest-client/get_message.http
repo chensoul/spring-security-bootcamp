@@ -1,8 +1,8 @@
-### GET request for message endpoint
+### GET request for /api/private/message endpoint
 
 GET http://localhost:8080/api/private/message
-Authorization: Basic {{standard_user_name}} {{standard_user_pwd}}
-###
+# Authorization: Basic {{standard_user_name}} {{standard_user_pwd}}
+
+### GET request for /api/public/message endpoint
 
 GET http://localhost:8080/api/public/message
-###
